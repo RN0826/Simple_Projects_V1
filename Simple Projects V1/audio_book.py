@@ -2,7 +2,7 @@ import pyttsx3 as tts
 # pyttsx3 is a text-to-speech conversion library in Python. Unlike alternative libraries, it works offline, and is compatible with both Python 2 and 3.
 # pyttsx3 -> text to speech conversion library.
 
-book = open(r"D:\Pycharm\Simple Projects V1\random_text")
+book = open(r"D:\Pycharm\Simple Projects V1\random_text_for_AudioBook")
 
 
 # checking if file can be accessed
