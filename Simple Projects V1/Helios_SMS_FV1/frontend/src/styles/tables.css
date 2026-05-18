@@ -1,0 +1,81 @@
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 1.1rem 1.35rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+td {
+  border-top: 1px solid var(--line);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  border-radius: 8px;
+  padding: 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.status-present {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.status-absent {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.status-late {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.status-excused {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.icon-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.icon-actions button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.icon-actions button:hover {
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}

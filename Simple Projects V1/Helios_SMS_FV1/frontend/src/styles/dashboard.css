@@ -1,0 +1,292 @@
+.app-shell {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 320px minmax(0, 1fr);
+  background: var(--page-bg);
+}
+
+.sidebar {
+  background: var(--primary-strong);
+  color: #ffffff;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 100px;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand-icon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  place-items: center;
+  border-radius: var(--radius);
+  background: #ffffff;
+  color: var(--primary-strong);
+}
+
+.brand-lockup h1,
+.brand-lockup p {
+  margin: 0;
+}
+
+.brand-lockup h1 {
+  font-size: 1.35rem;
+}
+
+.brand-lockup p {
+  margin-top: 0.2rem;
+  opacity: 0.86;
+}
+
+.side-nav {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.25rem 1rem;
+}
+
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-height: 46px;
+  border-radius: var(--radius);
+  padding: 0 1rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-weight: 700;
+}
+
+.side-nav a.active,
+.side-nav a:hover {
+  background: #ffffff;
+  color: var(--primary-strong);
+}
+
+.workspace {
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+  padding: 1.25rem 1.5rem 1.25rem 2.5rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-strong);
+}
+
+.topbar p,
+.topbar h2 {
+  margin: 0;
+}
+
+.topbar p {
+  color: var(--muted);
+}
+
+.topbar h2 {
+  margin-top: 0.25rem;
+  color: var(--text);
+}
+
+.content-area {
+  padding: 2rem 2.5rem;
+}
+
+.page-heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.page-heading h2,
+.page-heading p {
+  margin: 0;
+}
+
+.page-heading h2 {
+  font-size: 1.9rem;
+}
+
+.page-heading p {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.student-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  background: var(--surface);
+  font-weight: 700;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card,
+.panel,
+.profile-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.stat-card {
+  display: flex;
+  justify-content: space-between;
+  min-height: 150px;
+  padding: 1.6rem;
+}
+
+.stat-card p,
+.stat-card strong,
+.stat-card span {
+  display: block;
+  margin: 0;
+}
+
+.stat-card p,
+.stat-card span {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.stat-card strong {
+  margin-top: 0.7rem;
+  color: var(--primary-strong);
+  font-size: 2.3rem;
+  line-height: 1;
+}
+
+.stat-card span {
+  margin-top: 0.8rem;
+  font-weight: 500;
+}
+
+.stat-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border-radius: var(--radius);
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+
+.panel {
+  padding: 1.55rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel-flush {
+  padding: 0;
+  overflow: hidden;
+}
+
+.panel h3 {
+  margin: 0 0 1.25rem;
+  font-size: 1.25rem;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.panel-header h3 {
+  margin: 0;
+}
+
+.profile-panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+.avatar-mark {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary-strong);
+}
+
+.profile-panel h3,
+.profile-panel p {
+  margin: 0;
+}
+
+.profile-panel p {
+  margin-top: 0.3rem;
+  color: var(--muted);
+}
+
+.profile-panel dl {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.profile-panel dt {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.profile-panel dd {
+  margin: 0.25rem 0 0;
+  font-weight: 800;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .side-nav,
+  .brand-lockup {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    overflow-x: auto;
+  }
+
+  .topbar,
+  .content-area {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .stats-grid,
+  .profile-panel {
+    grid-template-columns: 1fr;
+  }
+}
