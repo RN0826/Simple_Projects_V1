@@ -1,0 +1,109 @@
+/*
+Design Variables
+CSS variables only: colors, gradients, spacing, shadows, glow colors, and z-index values.
+===========================================
+*/
+
+:root {
+  /* HEADER */
+  --bg-light: linear-gradient(to right, #e94560, salmon, #3e2f5b);
+  --header-txt-light: #f6c177;
+  --header-hvr-light: wheat;
+
+  /* NAV (LIGHT) */
+  --nav-bg: linear-gradient(
+    to right,
+    rgba(62, 47, 91, 0.9),
+    rgba(233, 69, 96, 0.9)
+  );
+  --nav-active: linear-gradient(
+    150deg,
+    rgba(233, 69, 96, 0.9),
+    rgba(250, 128, 114, 0.9)
+  );
+
+  /* --nav-active: linear-gradient(to right, #ff7a7a, #3e2f5b);*/
+
+  --nav-hover: rgba(255, 255, 255, 0.1);
+
+  --seg-hvr-light: linear-gradient(
+    150deg,
+    transparent,
+    gold,
+    whitesmoke,
+    transparent
+  );
+
+  /* SEARCH BOX */
+  --search-bg: rgba(255, 255, 255, 0.08);
+  --search-border: rgba(255, 255, 255, 0.2);
+
+  --txt-nrml-light: whitesmoke;
+  --txt-hvr-light: aqua;
+  --txt-hvr_2-light: black;
+
+  /* Theme Icon Colors */
+  --sun-theme: gold;
+  --sun-theme-filter: drop-shadow(0 0 8px gold);
+  --moon-theme: aqua;
+  --moon-theme-filter: drop-shadow(0 0 8px aqua);
+
+  /* BODY */
+  --body-light: rgba(240, 128, 128, 0.9);
+
+  /* CAROUSEL */
+  --carousel-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.1);
+
+  /* DARK MODE */
+  --bg-dark: linear-gradient(to right, #8faadc, #2f5da8, #0c1f3f);
+  --seg-nav-dark: linear-gradient(150deg, #0c1f3f, #8faadc, #0c1f3f);
+  --seg-hvr-dark: linear-gradient(
+    150deg,
+    transparent,
+    aqua,
+    whitesmoke,
+    transparent
+  );
+
+  /* Login Dark */
+  --login-bg-dark:
+    linear-gradient(
+      135deg,
+      rgba(120, 170, 255, 0.12),
+      rgba(40, 80, 180, 0.1),
+      rgba(10, 30, 80, 0.15)
+    ),
+    rgba(255, 255, 255, 0.05);
+  /* Login Light */
+  --login-bg-light:
+    linear-gradient(
+      135deg,
+      rgba(255, 160, 140, 0.18),
+      rgba(255, 120, 120, 0.15),
+      rgba(200, 80, 80, 0.12)
+    ),
+    rgba(255, 255, 255, 0.4);
+  --nav-active-dark: linear-gradient(
+    150deg,
+    rgba(143, 170, 220, 0.9),
+    rgba(47, 93, 168, 0.9)
+  );
+  --carousel-border-light: rgba(0, 255, 255, 0.9); /* Aqua Border */
+  --carousel-border-dark: rgba(255, 215, 0, 0.9); /* Gold Border */
+  --txt-hvr-dark: gold;
+
+  /* Council Quote Colors — per-character identity */
+
+  --quote-kafka: snow;
+  --quote-kafka-glow: crimson;
+
+  --quote-dostoevsky: mintcream;
+  --quote-dostoevsky-glow: moccasin;
+
+  --quote-ayanokoji: #ffd6e7;
+  --quote-ayanokoji-glow: #1f1f1f;
+
+  --quote-oliver: #f6c177;
+  --quote-oliver-glow: #ffff00;
+}

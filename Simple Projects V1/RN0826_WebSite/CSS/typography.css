@@ -1,0 +1,16 @@
+/*
+Typography Foundation
+Font imports, typography variables, heading defaults, and text utilities.
+===========================================
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Almendra+Display&family=Fleur+De+Leah&family=Grenze+Gotisch:wght@100..900&family=Lavishly+Yours&family=Mr+De+Haviland&family=Saira+Stencil:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --font-main: "Saira Stencil", sans-serif;
+  --font-gothic: "Grenze Gotisch", serif;
+  --font-display: "Almendra Display", serif;
+  --font-script-1: "Fleur De Leah", cursive;
+  --font-script-2: "Lavishly Yours", cursive;
+  --font-script-3: "Mr De Haviland", cursive;
+}

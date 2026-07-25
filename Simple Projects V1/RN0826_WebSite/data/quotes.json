@@ -1,0 +1,138 @@
+{
+  "kafka": [
+    {
+      "id": "kafka-001",
+      "batch": 1,
+      "author": "Kafka",
+      "primary": "Every certainty begins as a refuge built against the fear of questioning.",
+      "companion": "Doubt remembers what certainty forgets.",
+      "counterpoint": "Yet conviction saves the lost."
+    },
+    {
+      "id": "kafka-002",
+      "batch": 2,
+      "author": "Kafka",
+      "primary": "Acceptance uncovers the fears certainty worked hardest to conceal.",
+      "companion": "Truth seldom arrives gently.",
+      "counterpoint": "Comfort remembers forgotten wounds."
+    },
+    {
+      "id": "kafka-003",
+      "batch": 3,
+      "author": "Kafka",
+      "primary": "Every unanswered question quietly reshapes the person who refuses to escape it.",
+      "companion": "Questions outlive certainty.",
+      "counterpoint": "Answers deserve their hour."
+    },
+    {
+      "id": "kafka-004",
+      "batch": 4,
+      "author": "Kafka",
+      "primary": "Freedom begins where borrowed beliefs quietly surrender their borrowed authority.",
+      "companion": "Question inherited truths.",
+      "counterpoint": "Tradition preserves wisdom."
+    }
+  ],
+  "dostoevsky": [
+    {
+      "id": "dostoevsky-001",
+      "batch": 1,
+      "author": "Dostoevsky",
+      "primary": "The soul grows deepest where suffering refuses to surrender its meaning.",
+      "companion": "Pain teaches honest compassion.",
+      "counterpoint": "Joy deserves equal reverence."
+    },
+    {
+      "id": "dostoevsky-002",
+      "batch": 2,
+      "author": "Dostoevsky",
+      "primary": "The soul speaks most honestly after every borrowed certainty becomes silence.",
+      "companion": "Conscience leaves echoes.",
+      "counterpoint": "Silence deceives listeners."
+    },
+    {
+      "id": "dostoevsky-003",
+      "batch": 3,
+      "author": "Dostoevsky",
+      "primary": "Mercy begins where judgment finally recognizes its own hidden imperfections.",
+      "companion": "Compassion survives pride.",
+      "counterpoint": "Justice still endures."
+    },
+    {
+      "id": "dostoevsky-004",
+      "batch": 4,
+      "author": "Dostoevsky",
+      "primary": "Every forgiven mistake leaves behind a quieter soul than forgotten innocence.",
+      "companion": "Grace outlives regret.",
+      "counterpoint": "Memory guards humility."
+    }
+  ],
+  "ayanokoji": [
+    {
+      "id": "ayanokoji-001",
+      "batch": 1,
+      "author": "Ayanokoji",
+      "primary": "Those who master themselves rarely need to prove anything to the world.",
+      "companion": "Silence outlasts applause.",
+      "counterpoint": "Visibility shapes influence."
+    },
+    {
+      "id": "ayanokoji-002",
+      "batch": 2,
+      "author": "Ayanokoji",
+      "primary": "Discipline begins where unnecessary movement quietly abandons the mind.",
+      "companion": "Stillness sharpens judgment.",
+      "counterpoint": "Rigidity conceals weakness."
+    },
+    {
+      "id": "ayanokoji-003",
+      "batch": 3,
+      "author": "Ayanokoji",
+      "primary": "Patience quietly outperforms ambition whenever emotions compete to command decisions.",
+      "companion": "Precision rewards restraint.",
+      "counterpoint": "Speed carries purpose."
+    },
+    {
+      "id": "ayanokoji-004",
+      "batch": 4,
+      "author": "Ayanokoji",
+      "primary": "Control survives longest when intentions remain invisible beneath ordinary actions.",
+      "companion": "Subtlety commands outcomes.",
+      "counterpoint": "Presence shapes perception."
+    }
+  ],
+  "oliver": [
+    {
+      "id": "oliver-001",
+      "batch": 1,
+      "author": "Oliver Pendragon",
+      "primary": "History bends only when someone refuses to inherit yesterday without question.",
+      "companion": "Hope rewrites impossible futures.",
+      "counterpoint": "Even hope requires discipline."
+    },
+    {
+      "id": "oliver-002",
+      "batch": 2,
+      "author": "Oliver Pendragon",
+      "primary": "Tomorrow rewards those willing to patiently reconcile yesterday's unfinished lessons.",
+      "companion": "Harmony invites progress.",
+      "counterpoint": "Peace demands vigilance."
+    },
+    {
+      "id": "oliver-003",
+      "batch": 3,
+      "author": "Oliver Pendragon",
+      "primary": "Every generation inherits tomorrow before fully understanding the weight of yesterday.",
+      "companion": "Legacy shapes tomorrow.",
+      "counterpoint": "Tomorrow reshapes legacy."
+    },
+    {
+      "id": "oliver-004",
+      "batch": 4,
+      "author": "Oliver Pendragon",
+      "primary": "Tomorrow welcomes those courageous enough to repair what history left unfinished.",
+      "companion": "Courage invites renewal.",
+      "counterpoint": "Patience protects progress."
+    }
+  ]
+}

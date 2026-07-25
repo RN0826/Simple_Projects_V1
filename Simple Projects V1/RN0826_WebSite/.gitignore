@@ -1,0 +1,19 @@
+# Local workspace metadata
+.git/
+.agents/
+.codex/
+
+# Temporary/reference assets
+assets/TEMP/
+
+# Archived carousel experiments
+JavaScript/carousel_old.js
+JavaScript/carousel_landScapeOnly.js
+
+# Refactor scratch reports
+refactor-report.json
+corrective-refactor-report.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

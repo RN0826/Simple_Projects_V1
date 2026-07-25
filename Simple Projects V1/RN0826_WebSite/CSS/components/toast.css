@@ -1,0 +1,43 @@
+/*
+Toast Component
+Toast notifications, floating warnings, and success messages.
+===========================================
+*/
+
+/* ================= TOAST ================= */
+
+.toast {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+
+  padding: 10px 14px;
+  border-radius: 10px;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  color: white;
+  font-size: 0.85rem;
+
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.toast button {
+  background: #00eaff;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

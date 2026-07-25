@@ -1,0 +1,22 @@
+/*
+Layout System
+Major page structure and section layouts from the source homepage.
+===========================================
+*/
+
+/* ===== MAIN CONTENT ===== */
+main {
+  width: 100%;
+  padding: 0.6rem 1rem; /* match navbar horizontal padding */
+}
+
+/* ===== HERO SECTION ===== */
+.hero-section {
+  display: grid;
+  grid-template-columns: 70fr 30fr;
+  gap: 0.6rem;
+  width: 100%;
+  /*margin: 0.6rem 0 0;
+  /* height is driven by the landscape carousel's aspect ratio */
+  padding: 0.2rem;
+}

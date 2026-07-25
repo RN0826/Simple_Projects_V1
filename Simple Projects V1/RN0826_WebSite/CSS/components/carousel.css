@@ -1,0 +1,596 @@
+/*
+Carousel Component
+Handles landscape carousel, portrait carousel, hover states, slide transitions, pills, and arrows.
+===========================================
+*/
+
+:root {
+  /*==========*/
+  /*Light Mode*/
+  /*==========*/
+
+  /*LandScape*/
+
+  --slide-l1-light: url("../../assets/images/landScape/Kafka_LandScape_Default.png");
+  --slide-l1-light-hover: url("");
+
+  --slide-l2-light: url("../../assets/images/landScape/Dostoevsky_LandScape_Default.png");
+  --slide-l2-light-hover: url("");
+
+  --slide-l3-light: url("../../assets/images/landScape/Ayanokoji_LandScape_Default.png");
+  --slide-l3-light-hover: url("");
+
+  --slide-l4-light: url("../../assets/images/landScape/OliverPendragon_LandScape_Default.png");
+  --slide-l4-light-hover: url("");
+
+  /*Portrait*/
+
+  --slide-p1-light: url("../../assets/images/Portrait/Kafka_Portrait_Default.png");
+  --slide-p1-light-hover: url("");
+
+  --slide-p2-light: url("../../assets/images/Portrait/Dostoevsky_Portrait_Default.png");
+  --slide-p2-light-hover: url("");
+
+  --slide-p3-light: url("../../assets/images/Portrait/Ayanokoji_Portrait_Default.png");
+
+  --slide-p4-light: url("../../assets/images/Portrait/OliverPendragon_Portrait_Default.png");
+  /*==========*/
+  /*Dark Mode*/
+  /*==========*/
+
+  /*LandScape*/
+
+  --slide-l1-dark: url("../../assets/images/landScape/Sukuna_LandScape_Default.png");
+  --slide-l1-dark-hover: url("../../assets/images/landScape/Sukuna_LandScape_Hover.png");
+
+  --slide-l2-dark: url("../../assets/images/landScape/GojoSatoru_LandScape_Default.png");
+  --slide-l2-dark-hover: url("../../assets/images/landScape/GojoSatoru_LandScape_Hover.png ");
+
+  --slide-l3-dark: url("../../assets/images/landScape/TojiFushiguro_LandScape_Default.png");
+  --slide-l3-dark-hover: url("../../assets/images/landScape/TojiFushiguro_LandScape_Hover.png");
+
+  --slide-l4-dark: url("../../assets/images/landScape/Nanami_LandScape_Default.png");
+  --slide-l4-dark-hover: url("../../assets/images/landScape/Nanami_LandScape_Hover.png");
+
+  /*Portrait*/
+
+  --slide-p1-dark: url("../../assets/images/Portrait/Sukuna_Portrait_Default.png");
+  --slide-p1-dark-hover: url("../../assets/images/Portrait/Sukuna_Portrait_Hover.png");
+
+  --slide-p2-dark: url("../../assets/images/Portrait/GojoSatoru_Portrait_Default.png");
+  --slide-p2-dark-hover: url("../../assets/images/Portrait/GojoSatoru_Portrait_Hover.png");
+
+  --slide-p3-dark: url("../../assets/images/Portrait/TojiFushiguro_Portrait_Default.png");
+  --slide-p3-dark-hover: url("../../assets/images/Portrait/TojiFushiguro_Portrait_Hover.png");
+
+  --slide-p4-dark: url("../../assets/images/Portrait/Nanami_Portrait_Default.png");
+  --slide-p4-dark-hover: url("../../assets/images/Portrait/Nanami_Portrait_Hover.png");
+}
+
+/* ===== CAROUSEL SHARED ===== */
+.carousel-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--carousel-bg);
+  border: 0.5px solid var(--card-border);
+  user-select: none;
+  width: 100%;
+  /* shared height: both columns are equal via grid row stretch */
+  height: 100%;
+}
+
+.carousel-track-outer {
+  overflow: hidden;
+  border-radius: 16px;
+  height: 100%;
+
+  border: 1px solid var(--carousel-border-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deep shadow for 3D lift */
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+
+  isolation: isolate;
+}
+
+/* Landscape: 16:6 ratio drives the row height */
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  transition: transform 0.6s ease-in-out;
+  z-index: 1;
+}
+
+/* Landscape carousel sets row height via aspect-ratio */
+#carousel {
+  aspect-ratio: 16 / 6;
+  height: auto; /* let aspect-ratio do the work */
+}
+
+/* Portrait carousel fills the same row height, no aspect-ratio override */
+.portrait-wrap .carousel-slide {
+  aspect-ratio: unset;
+  background-size: cover;
+}
+
+/* ===== CAROUSEL Arrow Buttons ===== */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: 0.5px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 0.2s,
+    background 0.2s;
+  z-index: 5;
+  backdrop-filter: blur(4px);
+}
+.carousel-arrow.prev {
+  left: 10px;
+}
+.carousel-arrow.next {
+  right: 10px;
+}
+.carousel-wrap:hover .carousel-arrow {
+  opacity: 1;
+}
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ===== CAROUSEL Dot/Pill Indicators ===== */
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+.carousel-dot {
+  height: 4px;
+  width: 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+}
+.carousel-dot.active {
+  background: rgba(255, 255, 255, 0.9);
+  width: 30px;
+}
+
+/* ===== CAROUSEL Image Assign ===== */
+
+/* == Light Mode == */
+
+/* -- LandScape -- */
+body.light-mode .slide-l1 {
+  background-image: var(--slide-l1-light);
+}
+body.light-mode .slide-l2 {
+  background-image: var(--slide-l2-light);
+}
+body.light-mode .slide-l3 {
+  background-image: var(--slide-l3-light);
+}
+body.light-mode .slide-l4 {
+  background-image: var(--slide-l4-light);
+}
+
+/* -- Portrait -- */
+body.light-mode .slide-p1 {
+  background-image: var(--slide-p1-light);
+}
+body.light-mode .slide-p2 {
+  background-image: var(--slide-p2-light);
+}
+body.light-mode .slide-p3 {
+  background-image: var(--slide-p3-light);
+}
+body.light-mode .slide-p4 {
+  background-image: var(--slide-p4-light);
+}
+
+/* == Dark Mode == */
+
+/* -- LandScape -- */
+body.dark-mode .slide-l1 {
+  background-image: var(--slide-l1-dark);
+}
+body.dark-mode .slide-l2 {
+  background-image: var(--slide-l2-dark);
+}
+body.dark-mode .slide-l3 {
+  background-image: var(--slide-l3-dark);
+}
+body.dark-mode .slide-l4 {
+  background-image: var(--slide-l4-dark);
+}
+
+/* -- Portrait -- */
+
+body.dark-mode .slide-p1 {
+  background-image: var(--slide-p1-dark);
+}
+body.dark-mode .slide-p2 {
+  background-image: var(--slide-p2-dark);
+}
+body.dark-mode .slide-p3 {
+  background-image: var(--slide-p3-dark);
+}
+
+body.dark-mode .slide-p4 {
+  background-image: var(--slide-p4-dark);
+}
+
+/* ===== CAROUSEL HOVER BEHAVIOUR ===== */
+.carousel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out; /* Desired fade time */
+}
+.carousel-slide:hover::after {
+  opacity: 1;
+}
+.carousel-track:hover .carousel-slide {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+/* == Dark Mode == */
+/* -- LandScape -- */
+body.dark-mode .slide-l1:hover {
+  background-image: var(--slide-l1-dark-hover);
+}
+body.dark-mode .slide-l2:hover {
+  background-image: var(--slide-l2-dark-hover);
+}
+body.dark-mode .slide-l3:hover {
+  background-image: var(--slide-l3-dark-hover);
+}
+body.dark-mode .slide-l4:hover {
+  background-image: var(--slide-l4-dark-hover);
+}
+
+/*-- Portrait --*/
+
+body.dark-mode .slide-p1:hover {
+  background-image: var(--slide-p1-dark-hover);
+}
+
+body.dark-mode .slide-p2:hover {
+  background-image: var(--slide-p2-dark-hover);
+}
+
+body.dark-mode .slide-p3:hover {
+  background-image: var(--slide-p3-dark-hover);
+}
+
+body.dark-mode .slide-p4:hover {
+  background-image: var(--slide-p4-dark-hover);
+}
+
+body.dark-mode .carousel-track-outer {
+  border: 1.5px solid var(--carousel-border-dark);
+}
+
+/* ============================================================
+   COUNCIL QUOTE ENGINE
+   ============================================================
+
+   Purpose
+   -------
+   Handles the Light Mode philosophical quote system.
+
+   Responsibilities
+
+   • Quote positioning
+   • Quote typography
+   • Reading Flow animation
+   • Mouse-enter reveal
+   • Mouse-leave hide
+
+   Notes
+   -----
+   • Quotes exist ONLY in Light Mode.
+   • Dark Mode will use a completely different interaction.
+   • Quotes are injected dynamically by carousel.js.
+   • The HTML never contains hardcoded quote text.
+
+============================================================ */
+
+/* ============================================================
+   LIGHT MODE ONLY
+============================================================ */
+
+body.dark-mode .slide-quote {
+  display: none;
+}
+
+/* ============================================================
+   QUOTE CONTAINER
+============================================================ */
+
+.slide-quote {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 12%;
+
+  pointer-events: none;
+
+  z-index: 4;
+}
+
+/* ============================================================
+   QUOTE TYPOGRAPHY
+============================================================ */
+.quote-text {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.6);
+
+  line-height: 1.45;
+
+  text-shadow: var(--txt-hvr-light) 0 0 12px;
+  color: var(--txt-hvr-light);
+}
+
+/* ============================================================
+   WORD BUILDING BLOCKS
+
+   Every word is wrapped individually.
+
+   Example
+
+   Before
+
+       One step is all it takes.
+
+   After
+
+       [One]
+       [step]
+       [is]
+       [all]
+       [it]
+       [takes]
+
+   This allows every word to animate independently.
+
+============================================================ */
+
+.word-mask {
+  display: inline-block;
+
+  overflow: hidden;
+
+  vertical-align: top;
+
+  line-height: 1.45;
+}
+
+.word-inner {
+  display: inline-block;
+
+  transform: translateY(112%);
+
+  will-change: transform;
+}
+
+/* ============================================================
+   HOVER OVERLAY
+
+   Purpose
+
+   Slightly darkens the artwork while preserving all detail.
+
+   This is intentionally subtle.
+
+============================================================ */
+
+body.light-mode .carousel-slide::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.05);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 250ms ease;
+
+  z-index: 2;
+}
+
+body.light-mode .carousel-slide:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================
+   FUTURE EXTENSIONS
+
+   Reserved for
+
+   • Oliver
+   • Kafka
+   • Dostoevsky
+   • Ayanokoji
+
+   Each Council member will eventually receive
+   their own reveal philosophy.
+
+============================================================ */
+
+/*
+
+[data-reveal="oliver"]{
+
+}
+
+[data-reveal="kafka"]{
+
+}
+
+[data-reveal="dostoevsky"]{
+
+}
+
+[data-reveal="ayanokoji"]{
+
+}
+
+*/
+
+/* ============================================================
+   PER-CHARACTER QUOTE COLOR
+
+   Overrides the base .quote-text color/glow per slide.
+   Mapping matches QuoteRegistry in carousel.js:
+
+       slide-l1 → Kafka
+       slide-l2 → Dostoevsky
+       slide-l3 → Ayanokoji
+       slide-l4 → Oliver
+============================================================ */
+
+.slide-l1 .quote-text {
+  color: var(--quote-kafka);
+
+  text-shadow:
+    0 0 8px var(--quote-kafka-glow),
+    0 0 16px var(--quote-kafka-glow),
+    0 2px 18px rgba(0, 0, 0, 0.5);
+}
+
+.slide-l2 .quote-text {
+  color: var(--quote-dostoevsky);
+  text-shadow:
+    0 0 8px var(--quote-dostoevsky-glow),
+    0 0 16px var(--quote-dostoevsky-glow),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide-l3 .quote-text {
+  color: var(--quote-ayanokoji);
+  text-shadow:
+    0 0 8px var(--quote-ayanokoji-glow),
+    0 0 16px var(--quote-ayanokoji-glow),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide-l4 .quote-text {
+  color: var(--quote-oliver);
+  text-shadow:
+    0 0 8px var(--quote-oliver-glow),
+    0 0 16px var(--quote-oliver-glow),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   PORTRAIT QUOTE SIZING
+
+   Font size intentionally unchanged from base .quote-text —
+   portrait quotes are written short enough to fit at the
+   existing size. Only container width is adjusted for the
+   narrower frame.
+============================================================ */
+
+.portrait-wrap .slide-quote {
+  padding: 0 8%;
+}
+
+.portrait-wrap .quote-text {
+  max-width: 260px;
+}
+
+/* ============================================================
+   PER-CHARACTER QUOTE COLOR — PORTRAIT
+
+   Same tokens as landscape. Mapping:
+
+       slide-p1 → Kafka
+       slide-p2 → Dostoevsky
+       slide-p3 → Ayanokoji
+       slide-p4 → Oliver
+============================================================ */
+
+.slide-p1 .quote-text {
+  color: var(--quote-kafka);
+  text-shadow:
+    0 0 8px var(--quote-kafka-glow),
+    0 0 16px var(--quote-kafka-glow),
+    0 2px 18px rgba(0, 0, 0, 0.5);
+}
+
+.slide-p2 .quote-text {
+  color: var(--quote-dostoevsky);
+  text-shadow:
+    0 0 8px var(--quote-dostoevsky-glow),
+    0 0 16px var(--quote-dostoevsky-glow),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide-p3 .quote-text {
+  color: var(--quote-ayanokoji);
+  text-shadow:
+    0 0 8px var(--quote-ayanokoji-glow),
+    0 0 16px var(--quote-ayanokoji-glow),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.slide-p4 .quote-text {
+  color: var(--quote-oliver);
+  text-shadow:
+    0 0 8px var(--quote-oliver-glow),
+    0 0 16px var(--quote-oliver-glow),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}

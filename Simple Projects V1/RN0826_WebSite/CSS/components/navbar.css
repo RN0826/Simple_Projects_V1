@@ -1,0 +1,284 @@
+/*
+Navbar Component
+Handles header, navigation layout, hover effects, shimmer, nav icons, and theme-state nav colors.
+===========================================
+*/
+
+/* ================= HEADER ================= */
+/* ===== Header Container ===== */
+.site-header {
+  display: flex;
+  justify-content: center;
+
+  padding: 2rem;
+
+  position: relative;
+  overflow: hidden;
+
+  background: var(--bg-light);
+}
+/* ===== Header Link ===== */
+.header-link-static {
+  display: flex;
+  align-items: center;
+
+  gap: 1.2rem;
+
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* ===== LOGO ===== */
+.site-logo {
+  width: 120px;
+  height: auto;
+}
+
+/* ===== Site Name ===== */
+.site-text-static {
+  font-family: "Almendra Display", serif;
+  font-size: 5rem;
+  font-style: bolder;
+  font-weight: 599;
+
+  text-shadow:
+    1px 1px 3px rgba(0, 0, 0, 0.3),
+    1px 1px 4px rgba(0, 0, 0, 0.35);
+  -webkit-text-stroke: 0.5px gold;
+
+  color: var(--header-txt-light);
+
+  white-space: nowrap;
+}
+
+/* ===== Header HOVER STATES ===== */
+.header-link-static:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--header-hvr-light));
+}
+
+.site-text-static:hover {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 8px gold);
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  width: 100%;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  padding: 0.6rem 1rem;
+
+  top: 0;
+  z-index: 999;
+
+  position: sticky;
+
+  background: var(--bg-light);
+}
+
+/* ================= SEGMENTED NAV ================= */
+.seg-nav {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  border-radius: 999px;
+
+  padding: 4px;
+
+  background: var(--nav-bg);
+
+  position: relative;
+}
+
+/* ===== Push El's Right ===== */
+.spacer {
+  flex: 1;
+}
+
+/* ===== BUTTONS ===== */
+.seg-btn {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 16px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: none;
+  color: var(--txt-nrml-light);
+
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  z-index: 2;
+  transition: all 0.2s ease;
+
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.seg-btn.active {
+  color: var(--txt-hvr-light);
+}
+
+/* ===== Segmented Button Indicators ===== */
+.seg-nav-indicator {
+  position: absolute;
+  top: 4px;
+  height: calc(100% - 8px);
+
+  background: var(--nav-active);
+
+  border-radius: 999px;
+
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.seg-hover-indicator {
+  position: absolute;
+  top: 4px;
+  height: calc(100% - 8px);
+
+  background: var(--nav-hover);
+
+  border-radius: 999px;
+
+  opacity: 0;
+  z-index: 1;
+
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* ================= SHIMMER ON SEGMENTED NAV HOVER ================= */
+/* ===== SIMPLE SHIMMER (LIKE OLD VERSION) ===== */
+.seg-btn::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 50%;
+  height: 100%;
+
+  background: var(--seg-hvr-light);
+
+  transform: skewX(-25deg);
+  transition: 0.6s ease;
+
+  pointer-events: none;
+}
+
+/* HOVER → LEFT → RIGHT */
+.seg-btn:hover::after {
+  left: 150%;
+}
+
+/* ================= THEME ================= */
+.theme-btn {
+  width: 42px;
+  height: 42px;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  backface-visibility: hidden;
+  transform-origin: center;
+}
+
+.theme-btn .sun,
+.theme-btn .moon {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.4s ease;
+}
+.sun {
+  opacity: 1;
+  color: var(--sun-theme);
+  filter: var(--sun-theme-filter);
+}
+
+.moon {
+  opacity: 0;
+  color: var(--moon-theme);
+  filter: var(--moon-theme-filter);
+  transform: scaleX(-1);
+}
+
+/* ===== Dark Mode Theme Icons ===== */
+body.dark-mode .sun {
+  opacity: 0;
+}
+
+body.dark-mode .moon {
+  opacity: 1;
+}
+
+/* ===== Theme Icons Hover ===== */
+.theme-btn:hover {
+  transform: rotateX(20deg) scale(1.1);
+}
+
+/* Hover Preview Logic (Light Mode) */
+body:not(.dark-mode) .theme-btn:hover .sun {
+  opacity: 0;
+}
+body:not(.dark-mode) .theme-btn:hover .moon {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px whitesmoke);
+}
+
+/* Hover Preview Logic (Dark Mode) */
+body.dark-mode .theme-btn:hover .moon {
+  opacity: 0;
+}
+body.dark-mode .theme-btn:hover .sun {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px whitesmoke);
+}
+
+/* ================= BODY DARK MODE ================= */
+
+body.dark-mode {
+  background: var(--bg-dark);
+}
+body.dark-mode .site-header {
+  background-image: var(--bg-dark);
+}
+body.dark-mode .navbar {
+  background: var(--bg-dark);
+}
+body.dark-mode .seg-nav {
+  background: var(--seg-nav-dark);
+}
+body.dark-mode .seg-btn::after {
+  background: var(--seg-hvr-dark);
+}
+body.dark-mode .seg-nav-indicator {
+  background: var(--nav-active-dark);
+}
+
+body.dark-mode .search-inner:focus-within .material-symbols-rounded {
+  color: var(--txt-hvr-dark);
+  transition: color 0.2s ease;
+}
