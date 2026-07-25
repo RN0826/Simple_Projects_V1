@@ -1,21 +1,18 @@
-\# Audio Book Generator
+# Audio Book Generator
 
-A simple Python application that converts text from a file into spoken audio using the pyttsx3 text-to-speech library.
+A simple Python application that converts text from a file into spoken audio using the `pyttsx3` text-to-speech library.
 
-\#\# Requirements
+## Requirements
 
 Install the required dependency:
 
-\`\`\`bash
-
+```bash
 pip install pyttsx3
+```
 
-\`\`\`
+## Project Structure
 
-\#\# Project Structure
-
-\`\`\`text
-
+```text
 Audio_Book_Generator/
 │
 ├── README.md
@@ -23,27 +20,22 @@ Audio_Book_Generator/
 ├── audio_book.py
 │
 └── Legacy/
-└── audio_book_v0.py
+    └── audio_book_v0.py
+```
 
-\`\`\`
+## Running the Program
 
-\#\# Running the Program
-
-\`\`\`bash
-
+```bash
 python audio_book.py
+```
 
-\`\`\`
+The program will read the contents of `sample_text.txt` and speak them aloud using your system's default voice.
 
-The program will read the contents of \`sample_text.txt\` and speak them aloud using your system's default voice.
+## Notes
 
-\#\# Notes
-
-\- Works offline.
-
-\- Uses the pyttsx3 text-to-speech engine.
-
-\- The text file can be modified to contain any content you want read aloud.
+- Works offline.
+- Uses the `pyttsx3` text-to-speech engine.
+- The text file can be modified to contain any content you want read aloud.
 
 ## Version History
 
@@ -51,7 +43,7 @@ The program will read the contents of \`sample_text.txt\` and speak them aloud u
 
 Initial working prototype.
 
-Characteristics:
+**Characteristics:**
 
 - Uses a hardcoded file path
 - Reads text line-by-line
@@ -62,9 +54,9 @@ Characteristics:
 
 Refactored implementation.
 
-Improvements:
+**Improvements:**
 
-- Uses pathlib for improved portability
+- Uses `pathlib` for improved portability
 - Reads the entire file at once
 - Cleaner code organization
 - Improved comments and documentation
