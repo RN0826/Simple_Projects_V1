@@ -1,61 +1,216 @@
 # RN0826 Website
 
-RN0826 is a static frontend project built as a personal "quick pit-stop for a nerd" website. The current version focuses on a polished homepage experience with a branded header, segmented navigation, light/dark modes, paired landscape and portrait carousels, dynamic quote loading, search UI, and a login modal prototype.
+> *A quick pit-stop for a nerd.*
 
-## Current Features
+**A modular frontend project exploring storytelling, philosophy, interactive UI, and reusable web architecture.**
 
-- Light and dark visual modes with persistent theme preference.
-- Dual carousel hero layout: landscape panel plus portrait companion panel.
-- Data-driven quote system powered by `data/quotes.json`.
-- Animated quote reveal/exit system in light mode.
-- Portrait quotes randomly select either a companion or counterpoint statement.
-- Search bar toggle with keyboard shortcut support.
-- Login modal with guarded close behavior, password visibility toggle, password-strength hints, and toast warning.
-- Separate `auth-register-dummy.html` prototype kept as a future auth/register experiment.
+---
 
-## Project Structure
+# 📸 Hero Preview
+
+![Hero Preview](assets/screenshots/hero-dark-home.png)
+
+---
+
+# About
+
+RN0826 is a personal frontend laboratory where interface design, storytelling, animation, and philosophy meet.
+
+Rather than serving as a conventional portfolio website, RN0826 is designed as an evolving platform that experiments with reusable UI components, modular frontend architecture, and immersive visual presentation.
+
+Every major feature is treated as part of a larger design system instead of being built as an isolated page.
+
+---
+
+## Current Status
+
+RN0826 is currently in active development.
+
+The homepage experience is feature-complete as an MVP, while additional pages and authentication workflows are being refined for future releases.
+
+---
+
+# Screenshots
+
+## Homepage — Dark Mode
+
+![Homepage — Dark Mode](assets/screenshots/home-dark.png)
+
+---
+
+## Homepage — Light Mode
+
+![Homepage — Light Mode](assets/screenshots/home-light.png)
+
+---
+
+# Authentication Prototype
+
+The authentication system is currently under active development.
+
+At present, the project includes:
+
+- Login Prototype (Light Theme)
+- Register Prototype (Dark Theme)
+
+The remaining theme variants will be added as the authentication system approaches Version 1.
+
+---
+
+## Login Prototype
+
+Current implementation (Light Theme)
+
+![Login Prototype](assets/screenshots/login-modal-light.png)
+
+---
+
+## Register Prototype
+
+Current implementation (Dark Theme)
+
+![Register Prototype](assets/screenshots/register-modal-dark.png)
+
+---
+
+# Highlights
+
+## 🎭 Dual Council Carousel
+
+- Landscape and portrait carousels synchronized together
+- Dynamic quote loading from JSON
+- Animated quote transitions
+- Independent Light and Dark Council experiences
+
+## 📜 Dynamic Quote Engine
+
+Quotes are loaded dynamically from `data/quotes.json`.
+
+Each Council member supports Primary, Companion and Counterpoint statements, allowing new combinations without modifying the HTML.
+
+## 🌗 Dual Theme Identity
+
+Light and Dark Mode are intentionally designed as distinct visual identities rather than simple color inversions.
+
+## 🔍 Integrated Search
+
+- Keyboard shortcut support
+- Animated reveal
+- Responsive behaviour
+
+## 🔐 Authentication Prototype
+
+A standalone prototype exploring animated transitions, password validation, password visibility and registration workflow before integration into the main application.
+
+---
+
+# Architecture
 
 ```text
-RN0826_WebSite/
-|-- index.html
-|-- auth-register-dummy.html
-|-- data/
-|   `-- quotes.json
-|-- CSS/
-|   |-- variables.css
-|   |-- typography.css
-|   |-- global.css
-|   |-- layout.css
-|   |-- utilities.css
-|   |-- components/
-|   `-- pages/
-|-- JavaScript/
-|   |-- navbar.js
-|   |-- search.js
-|   |-- themes.js
-|   |-- carousel.js
-|   |-- auth.js
-|   `-- main.js
-`-- assets/
-    `-- images/
+RN0826_WebSite
+│
+├── CSS
+├── JavaScript
+├── Data
+└── Assets
+    ├── Images
+    └── Screenshots
 ```
 
-## Running Locally
+---
 
-This project does not require a build step. Because `carousel.js` fetches `data/quotes.json`, run it through a local server instead of opening `index.html` directly.
+# Design Philosophy
 
-Example with BrowserSync:
+RN0826 is built around the belief that frontend interfaces should tell a story. Animations, typography, themes and layouts are treated as narrative tools rather than decorative effects.
+
+---
+
+# Technologies
+
+| Technology | Purpose |
+|------------|---------|
+| HTML5 | Semantic structure |
+| CSS3 | Styling, layout and animation |
+| Vanilla JavaScript | Interactive behaviour |
+| JSON | Dynamic Council statements |
+| BrowserSync | Local development |
+
+---
+
+# Running Locally
 
 ```bash
 browser-sync start --server --files "**/*.html, **/*.css, **/*.js, data/*.json"
 ```
 
-Then open the local URL shown by BrowserSync.
+---
 
-## Notes
+# Roadmap
 
-`auth-register-dummy.html` is intentionally kept as a standalone prototype. The main MVP login modal lives in `index.html`; the register prototype is preserved separately while the integration approach is being refined.
+## Version 1
 
-## Version 1 Scope
+- ✅ Homepage
+- ✅ Theme System
+- ✅ Dual Carousel
+- ✅ Search Interface
+- ✅ Login Prototype
 
-This version is intended as a stable MVP/homepage experience. Future versions may add full About/Contact pages, a merged register flow, richer quote pairing behavior, and stronger responsive layout polish.
+## Version 2
+
+- ⏳ Register Integration
+- ⏳ About Page
+- ⏳ Contact Page
+- ⏳ Blog
+
+## Version 3
+
+- ⏳ Backend Authentication
+- ⏳ User Accounts
+- ⏳ User Preferences
+- ⏳ CMS
+
+---
+
+# Repository Structure
+
+```text
+RN0826_WebSite/
+├── .agents/
+├── assets/
+│   ├── images/
+│   └── screenshots/
+├── CSS/
+├── JavaScript/
+├── data/
+├── TEMP/
+├── index.html
+└── auth-register-dummy.html
+```
+
+---
+
+# Behind the Project
+
+RN0826 serves as a personal frontend laboratory where new interface ideas are developed as standalone prototypes before being integrated into the main website.
+
+---
+
+# Future Vision
+
+- User Accounts
+- Story Showcase
+- Interactive Timeline
+- Character Pages
+- Blog
+- CMS
+
+---
+
+# Author
+
+**Rahul SP**
+
+GitHub: https://github.com/RN0826
+
+Repository:
+https://github.com/RN0826/Simple_Projects_V1/tree/master/Simple%20Projects%20V1/RN0826_WebSite
