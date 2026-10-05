@@ -1,4 +1,4 @@
-name: Deploy Helios SMS
+name: Deploy Projects to GitHub Pages
 
 on:
   push:
@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - "Simple Projects V1/Helios_SMS_FV1/frontend/**"
+      - "Simple Projects V1/RN0826_WebSite/**"
       - ".github/workflows/deploy-helios.yml"
 
 permissions:
@@ -14,16 +15,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: helios-pages
+  group: projects-pages
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: "Simple Projects V1/Helios_SMS_FV1/frontend"
 
     steps:
       - name: Checkout
@@ -36,16 +33,26 @@ jobs:
           cache: npm
           cache-dependency-path: "Simple Projects V1/Helios_SMS_FV1/frontend/package-lock.json"
 
-      - name: Install dependencies
+      - name: Install Helios dependencies
+        working-directory: "Simple Projects V1/Helios_SMS_FV1/frontend"
         run: npm ci
 
-      - name: Build
+      - name: Build Helios
+        working-directory: "Simple Projects V1/Helios_SMS_FV1/frontend"
         run: npm run build
+
+      - name: Assemble Pages site
+        run: |
+          mkdir -p _site/rn0826
+
+          cp -r "Simple Projects V1/Helios_SMS_FV1/frontend/dist/." "_site/"
+
+          cp -r "Simple Projects V1/RN0826_WebSite/." "_site/rn0826/"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "Simple Projects V1/Helios_SMS_FV1/frontend/dist"
+          path: "_site"
 
   deploy:
     environment:
