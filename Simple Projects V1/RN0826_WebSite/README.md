@@ -4,6 +4,10 @@
 
 **A modular frontend project exploring storytelling, philosophy, interactive UI, and reusable web architecture.**
 
+View the live website here:
+
+**[Live Website](https://rn0826.github.io/Simple_Projects_V1/rn0826/)**
+
 ---
 
 # 📸 Hero Preview
